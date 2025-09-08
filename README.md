@@ -27,11 +27,24 @@ This project is a Python application for detecting and recognizing car number pl
     cd your-repository-name
     ```
 
-2.  **Install the required Python libraries:**
+2.  **Create a virtual environment and activate it:**
+
+    *   **Using `conda`:**
+        ```bash
+        conda create -n anpr python=3.10
+        conda activate anpr
+        ```
+
+    *   **Using `venv`:**
+        ```bash
+        python -m venv anpr
+        source anpr/bin/activate  # On Windows, use `anpr\Scripts\activate`
+        ```
+
+3.  **Install the required Python libraries:**
     ```bash
     pip install -r requirements.txt
     ```
-    *(Note: You will need to create a `requirements.txt` file. See the "Creating `requirements.txt`" section below.)*
 
 ## Usage
 
@@ -50,23 +63,3 @@ This project is a Python application for detecting and recognizing car number pl
     *   `car_bbox`: The bounding box of the car.
     *   `license_number`: The recognized license plate number.
     *   `license_plate_conf_score`: The confidence score of the license plate recognition.
-
-## Creating `requirements.txt`
-
-You can create a `requirements.txt` file by running the following command in your terminal. This will list all the Python packages you have installed in your current environment. It's recommended to use a virtual environment for this.
-
-```bash
-pip freeze > requirements.txt
-```
-
-A typical `requirements.txt` for this project might look like this:
-
-```
-opencv-python
-ultralytics
-deepsort-realtime
-easyocr
-torch
-torchvision
-torchaudio
-```
