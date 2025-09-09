@@ -1,6 +1,6 @@
-# Car Number Plate Detection and Recognition
+# Car Number Plate Detection and Extraction
 
-This project is a Python application for detecting and recognizing car number plates from a video stream. It uses a combination of object detection, tracking, and optical character recognition (OCR) to identify vehicles, track them, and read their license plates.
+This project is a Python application for detecting and extracting car number plates from a video stream. It uses a combination of object detection, tracking, and optical character recognition (OCR) to identify vehicles, track them, and read their license plates.
 
 ## Features
 
