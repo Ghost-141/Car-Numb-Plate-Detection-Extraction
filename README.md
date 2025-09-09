@@ -4,27 +4,29 @@ This project is a Python application for detecting and recognizing car number pl
 
 ## Features
 
-*   **Vehicle Detection:** Detects cars, trucks, and other vehicles in a video.
+*   **Vehicle Detection:** Detects cars, trucks, and motorcycles in a video.
 *   **Vehicle Tracking:** Tracks the detected vehicles across frames to maintain a unique ID for each vehicle.
 *   **License Plate Detection:** Locates and extracts license plates from the detected vehicles.
 *   **License Plate Recognition:** Reads the characters from the license plates using OCR.
 *   **CSV Output:** Saves the results, including the vehicle ID, license plate number, and confidence score, to a CSV file.
-*   **Video Output:** Creates a new video with bounding boxes drawn around the detected vehicles and their license plates.
+*   **Video Output:** Creates a new video with bounding boxes drawn around the detected license plates.
 
-## Technologies Used
+## Libraries Used
 
 *   **Python:** The core programming language.
-*   **OpenCV:** For video processing and drawing bounding boxes.
-*   **YOLO (You Only Look Once):** For object detection (vehicles and license plates). The specific models used are `yolo11n.pt` for general object detection and `anpr-demo-model.pt` for license plate detection.
+*   **OpenCV:** For video processing and saving.
+*   **Model:** The core model used here is YOLO.
+    * **Vechicle Detection:** For detecting vechiles I have used `yolo11n` pre-trained model.
+    * **License Plate Detection:** For license plate detection I have used yolov11 fine-tuned model(`anpr-demo-model.pt`) on lincense plate dataset
 *   **DeepSort:** For tracking the detected vehicles.
-*   **EasyOCR:** For recognizing the text on the license plates.
+*   **EasyOCR:** For extracting the text on the license plates.
 
 ## Installation
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/your-repository-name.git
-    cd your-repository-name
+    git clone https://github.com/Ghost-141/Car-Numb-Plate-Detection-Extraction.git
+    cd Car-Numb-Plate-Detection-Extraction
     ```
 
 2.  **Create a virtual environment and activate it:**
@@ -48,7 +50,7 @@ This project is a Python application for detecting and recognizing car number pl
 
 ## Usage
 
-1.  **Place your input video** in the root directory of the project and name it `anpr-demo-video.mp4`.
+1.  **Place your input video** in the root directory of the project folder.
 2.  **Run the `detect.py` script:**
     ```bash
     python detect.py
@@ -58,8 +60,20 @@ This project is a Python application for detecting and recognizing car number pl
 
 *   **`Detection_video.mp4`:** A video file with bounding boxes around the detected cars and license plates. The recognized license plate text is also displayed.
 *   **`test.csv`:** A CSV file containing the following columns:
-    *   `frame_nmr`: The frame number where the license plate was first confidently recognized.
-    *   `car_id`: The unique ID assigned to the vehicle.
-    *   `car_bbox`: The bounding box of the car.
-    *   `license_number`: The recognized license plate number.
-    *   `license_plate_conf_score`: The confidence score of the license plate recognition.
+
+frame_mmr|car_id|car_bbox|license_number|license_plate_conf_score
+-----|-----|-----|-----|------|
+-----|-----|-----|-----|------|
+|                             |
+
+*   `frame_nmr`: The frame number where the license plate was first confidently recognized.
+*   `car_id`: The unique ID assigned to the vehicle.
+*   `car_bbox`: The bounding box of the car.
+*   `license_number`: The recognized license plate number.
+*   `license_plate_conf_score`: The confidence score of the license plate recognition.
+
+
+## Future Work
+
+- Improve model accuracy detection in low light 
+- Import & optimize model for edge devices
