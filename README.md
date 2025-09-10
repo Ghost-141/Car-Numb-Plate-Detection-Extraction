@@ -1,5 +1,8 @@
 # Car Number Plate Detection and Extraction
 
+<img width="960" height="450" alt="License Plate Detection & Extraction" src="https://github.com/user-attachments/assets/1328599c-bcc1-445d-8449-f6792a25531f" />
+
+
 This project is based on python for detecting and extracting car license plate number from a video stream. It uses a combination of object detection, tracking, and optical character recognition (OCR) to identify vehicles, track them, and read their license plates.
 
 ## Features
