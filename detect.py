@@ -7,8 +7,9 @@ from deep_sort_realtime.deepsort_tracker import DeepSort
 def main():
     license_detector, model, vehicle_id, results = get_config()
     tracker = DeepSort()
+
     # Open video
-    cap = cv2.VideoCapture("anpr-demo-video.mp4")
+    cap = cv2.VideoCapture("input_video.mp4")
     out = initialize_video_writer(cap, 'Detection_video.mp4')
 
     frame_num = -1

@@ -1,25 +1,23 @@
 # Car Number Plate Detection and Extraction
 
-This project is a Python application for detecting and extracting car number plates from a video stream. It uses a combination of object detection, tracking, and optical character recognition (OCR) to identify vehicles, track them, and read their license plates.
+This project is based on python for detecting and extracting car license plate number from a video stream. It uses a combination of object detection, tracking, and optical character recognition (OCR) to identify vehicles, track them, and read their license plates.
 
 ## Features
 
-*   **Vehicle Detection:** Detects cars, trucks, and motorcycles in a video.
-*   **Vehicle Tracking:** Tracks the detected vehicles across frames to maintain a unique ID for each vehicle.
-*   **License Plate Detection:** Locates and extracts license plates from the detected vehicles.
-*   **License Plate Recognition:** Reads the characters from the license plates using OCR.
+*   **License Plate Detection:** Detects license plates from the detected vehicles.
+*   **License Plate Recognition:** Extract the characters from the license plates using OCR.
 *   **CSV Output:** Saves the results, including the vehicle ID, license plate number, and confidence score, to a CSV file.
-*   **Video Output:** Creates a new video with bounding boxes drawn around the detected license plates.
+*   **Video Output:** Creates a new video with bounding boxes drawn around the detected license plates followed by extracted text.
 
 ## Libraries Used
 
 *   **Python:** The core programming language.
 *   **OpenCV:** For video processing and saving.
-*   **Model:** The core model used here is YOLO.
-    * **Vechicle Detection:** For detecting vechiles I have used `yolo11n` pre-trained model.
-    * **License Plate Detection:** For license plate detection I have used yolov11 fine-tuned model(`anpr-demo-model.pt`) on lincense plate dataset
+*   **Model:**
+    * **Vechicle Detection:** For detecting vechiles, I have used `yolo11n` pre-trained model.
+    * **License Plate Detection:** For license plate detection, I have fine-tuned `yolo11n` on lincense plate [dataset](https://universe.roboflow.com/roboflow-universe-projects/license-plate-recognition-rxg4e). 
 *   **DeepSort:** For tracking the detected vehicles.
-*   **EasyOCR:** For extracting the text on the license plates.
+*   **EasyOCR:** For extracting the text of detected license plates.
 
 ## Installation
 
@@ -40,7 +38,8 @@ This project is a Python application for detecting and extracting car number pla
     *   **Using `venv`:**
         ```bash
         python -m venv anpr
-        source anpr/bin/activate  # On Windows, use `anpr\Scripts\activate`
+        source anpr/bin/activate # for linux
+        anpr\Scripts\activate # for windows
         ```
 
 3.  **Install the required Python libraries:**
@@ -48,17 +47,14 @@ This project is a Python application for detecting and extracting car number pla
     pip install -r requirements.txt
     ```
 
-## Usage
+## How to Use:
 
-1.  **Place your input video** in the root directory of the project folder.
-2.  **Run the `detect.py` script:**
-    ```bash
-    python detect.py
-    ```
+1.  Replace your video file directory in place of `input_video.mp4` in detect.py` file.
+2.  Run the `detect.py` script.
 
 ## Output
 
-*   **`Detection_video.mp4`:** A video file with bounding boxes around the detected cars and license plates. The recognized license plate text is also displayed.
+*   **`Detection_video.mp4`:** A video file with bounding boxes around license plates, followed by license plate text.
 *   **`test.csv`:** A CSV file containing the following columns:
 
 frame_mmr|car_id|car_bbox|license_number|license_plate_conf_score
