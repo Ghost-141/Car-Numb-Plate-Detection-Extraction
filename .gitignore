@@ -1,0 +1,7 @@
+# Ignore frontend dependency and build artifacts
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/dist/
+frontend/.turbo/
+frontend/.vercel/
