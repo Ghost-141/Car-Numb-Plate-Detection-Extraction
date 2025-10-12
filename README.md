@@ -76,3 +76,4 @@ frame_mmr|car_id|car_bbox|license_number|license_plate_conf_score
 
 - Improve model accuracy detection in low light 
 - Import & optimize model for edge devices
+- Edge Deployment (Currently testing on Pi 5)
