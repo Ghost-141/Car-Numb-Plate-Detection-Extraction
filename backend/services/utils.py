@@ -49,8 +49,8 @@ def read_license_plate(license_plate_crop):
 def write_csv(results, output_path):
     """
     Write unique car_id entries to CSV.
-    For each car_id, keep only the license plate text with the highest confidence score,
-    along with car bounding box and frame number.
+    For each car_id, keep only the license plate text with the highest confidence score
+    and record the frame number for that detection.
     """
     best_entries = {}
 
@@ -66,19 +66,17 @@ def write_csv(results, output_path):
                         'text': text,
                         'score': score,
                         'frame': frame_nmr,
-                        'bbox': car_data.get('car', {}).get('bbox')
                     }
 
     with open(output_path, 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(['frame_nmr', 'car_id', 'car_bbox', 'license_number', 'license_plate_conf_score'])
+        writer.writerow(['frame_nmr', 'car_id', 'license_number', 'license_plate_conf_score'])
 
         # Sort by frame number
         sorted_best_entries = sorted(best_entries.items(), key=lambda item: item[1]['frame'])
 
         for car_id, data in sorted_best_entries:
-            bbox_str = ','.join(map(str, data['bbox'])) if data['bbox'] else ''
-            writer.writerow([data['frame'], car_id, bbox_str, data['text'], data['score']])
+            writer.writerow([data['frame'], car_id, data['text'], data['score']])
 
 
 
