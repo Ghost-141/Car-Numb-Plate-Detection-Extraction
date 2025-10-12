@@ -5,3 +5,5 @@ frontend/out/
 frontend/dist/
 frontend/.turbo/
 frontend/.vercel/
+data/
+__pycache__/
